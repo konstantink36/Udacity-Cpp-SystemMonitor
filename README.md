@@ -8,7 +8,7 @@ In order to get a flying start, Udacity provided with starter code that can be f
 # Instructions
 First, make sure you have installed ncurses, which is a library that facilitates text-based graphical output in the terminal. This project relies on ncurses for display output. You can install ncurses within your own Linux environment: sudo apt install libncurses5-dev libncursesw5-dev
 
-Clone the project repository: git clone 
+Clone the project repository: git clone https://github.com/konstantink36/Udacity-SystemMonitor.git
 
 Build the project: make build
 
