@@ -142,7 +142,7 @@ long LinuxParser::ActiveJiffies() {
   return sum;
 }
 
-// DONE 6: Read and return the number of idle jiffies for the system
+// Read and return the number of idle jiffies for the system
 // columns from left to right: user, nice, system, idle, iowait
 // idle jiffies = idle + iowait
 long LinuxParser::IdleJiffies() {
