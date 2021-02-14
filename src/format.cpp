@@ -6,7 +6,7 @@
 
 using std::string;
 
-// DONE: Complete this helper function
+// Helper function
 // INPUT: Long int measuring seconds
 // OUTPUT: HH:MM:SS
 
