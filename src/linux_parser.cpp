@@ -15,7 +15,7 @@ using std::string;
 using std::to_string;
 using std::vector;
 
-// DONE 1: An example of how to read data from the filesystem
+// Example of how to read data from the filesystem
 string LinuxParser::OperatingSystem() {
   string line;
   string key;
@@ -38,7 +38,7 @@ string LinuxParser::OperatingSystem() {
   return value;
 }
 
-// DONE 2: An example of how to read data from the filesystem
+
 string LinuxParser::Kernel() {
   string os, version, kernel;
   string line;
@@ -51,7 +51,6 @@ string LinuxParser::Kernel() {
   return kernel;
 }
 
-// BONUS: Update this to use std::filesystem
 vector<int> LinuxParser::Pids() {
   vector<int> pids;
   DIR* directory = opendir(kProcDirectory.c_str());
@@ -71,9 +70,8 @@ vector<int> LinuxParser::Pids() {
   return pids;
 }
 
-// DONE 1: Read and return the system memory utilization
-// Memory Utilization = UsedMemory/TotalMemory; UsedMemory = TotalMemory - FreeMemory;
-// from file /proc/meminfo
+// Read and return the system memory utilization
+
 float LinuxParser::MemoryUtilization() { 
   string key, value, line;				
   float memTotal = 0.0, memFree = 0.0;
@@ -94,8 +92,7 @@ float LinuxParser::MemoryUtilization() {
 return 0; 
 }
 
-// DONE 2: Read and return the system uptime
-// in /proc/uptime; first string is uptime in sec
+// Read and return the system uptime
 long LinuxParser::UpTime() { 
   string uptime, line;			
   std::ifstream stream(kProcDirectory + kUptimeFilename);
@@ -108,8 +105,7 @@ long LinuxParser::UpTime() {
   return 0; 
  }
 
-// DONE 3: Read and return the number of jiffies for the system
-// in /proc/stat; sum 10 numbers in first line after keyword "cpu"
+// Read and return the number of jiffies for the system
 long LinuxParser::Jiffies() {
   vector<string> cpu_str = LinuxParser::CpuUtilization();
   vector<long> cpu_long(10, 0);
@@ -121,8 +117,7 @@ long LinuxParser::Jiffies() {
   return jiffies;
 } 
 
-// DONE 4: Read and return the number of active jiffies for a PID
-// in /proc/PID/stat; Sum active Jiffies in column 14 + 15
+// Read and return the number of active jiffies for a PID
 long LinuxParser::ActiveJiffies(int pid) {
   string line, value;
   long sum = 0;
@@ -139,8 +134,7 @@ long LinuxParser::ActiveJiffies(int pid) {
   return sum; 
 }
 
-// DONE 5: Read and return the number of active jiffies for the system
-// in proc/stat/; sum first 3 numbers after "CPU" 
+// Read and return the number of active jiffies for the system
 long LinuxParser::ActiveJiffies() {
   vector<string> jiffies = CpuUtilization();
   long sum = 0;
@@ -158,8 +152,7 @@ long LinuxParser::IdleJiffies() {
   return sum;
 }
 
-// DONE 7: Read and return CPU utilization
-// from proc/stat; put line after "CPU" in vector of strings
+// Read and return CPU utilization
 vector<string> LinuxParser::CpuUtilization() { 
   string value, line, key;
   vector<string> cpuValues;
@@ -175,8 +168,7 @@ vector<string> LinuxParser::CpuUtilization() {
   return cpuValues;
 }
 
-// DONE 8: Read and return the total number of processes
-// in /proc/stat after keyword processes
+// Read and return the total number of processes
 int LinuxParser::TotalProcesses() {
   string line;
   string key;
@@ -195,8 +187,7 @@ int LinuxParser::TotalProcesses() {
   return 0;
 }
 
-// DONE 9: Read and return the number of running processes
-// after "procs_running" in /proc/stat
+// Read and return the number of running processes
 int LinuxParser::RunningProcesses() {
   string line;
   string key;
@@ -215,8 +206,7 @@ int LinuxParser::RunningProcesses() {
   return 0;
 }
 
-// DONE 10: Read and return the command associated with a process
-// in /proc/PID/cmdline 
+// Read and return the command associated with a process
 string LinuxParser::Command(int pid) {
   string command;
   std::ifstream stream(kProcDirectory + to_string(pid) + kCmdlineFilename);
@@ -226,9 +216,7 @@ string LinuxParser::Command(int pid) {
   return command;
 }
 
-// DONE 11: Read and return the memory used by a process
-// in /proc/PID/status; after keyword VmData; output in MB; 1MB = 1024kb
-// have used VmData instead of VmSize, as VmData is exact physical memory of RAM and VmSize is sum of all virtual memory
+// Read and return the memory used by a process
 string LinuxParser::Ram(int pid) { 
   string line, key, value;
   std::stringstream ram;
@@ -246,8 +234,7 @@ string LinuxParser::Ram(int pid) {
   return string();
 }
 
-// DONE 12: Read and return the user ID associated with a process
-// in /proc/PID/status; keyword Uid
+// Read and return the user ID associated with a process
 string LinuxParser::Uid(int pid) { 
   string line, key, value;
   std::ifstream stream(kProcDirectory + to_string(pid) + kStatusFilename);
@@ -263,8 +250,7 @@ string LinuxParser::Uid(int pid) {
   return string();
 }
 
-// DONE 13: Read and return the user associated with a process
-// in /etc/passwd
+// Read and return the user associated with a process
 string LinuxParser::User(int pid) { 
   string uid = LinuxParser::Uid(pid);
   string line, key, x, value;
@@ -282,10 +268,7 @@ string LinuxParser::User(int pid) {
   return string();
 }
 
-// DONE 14: Read and return the uptime of a process
-// in /proc/PID/stat; #22 is process start time, the time the process started after system reboot.
-// proc uptime = system uptime - proc starttime
-// starttime is in clock ticks, divide by sysconf(_SC_CLK_TCK) to get seconds
+// Read and return the uptime of a process
 long LinuxParser::UpTime(int pid) {
   string line, value;
   long starttime, uptime;
