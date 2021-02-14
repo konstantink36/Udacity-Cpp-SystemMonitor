@@ -12,10 +12,10 @@ Install ncurses within your own Linux environment: sudo apt install libncurses5-
 # Make
 This project uses Make. The Makefile has four targets:
 
-build compiles the source code and generates an executable
-format applies ClangFormat to style the source code
-debug compiles the source code and generates an executable, including debugging symbols
-clean deletes the build/ directory, including all of the build artifacts
+- build compiles the source code and generates an executable
+- format applies ClangFormat to style the source code
+- debug compiles the source code and generates an executable, including debugging symbols
+- clean deletes the build/ directory, including all of the build artifacts
 
 # Instructions
 First, make sure you have installed ncurses, which is a library that facilitates text-based graphical output in the terminal. This project relies on ncurses for display output. You can install ncurses within your own Linux environment: sudo apt install libncurses5-dev libncursesw5-dev
