@@ -11,8 +11,7 @@
 using std::vector;
 using std::string;
 
-// DONE: Return the aggregate CPU utilization
-// fraction between the active jiffies (non idle) and total jiffies (idle + non idle).
+// Return the aggregate CPU utilization
 
 float Processor::Utilization() 
 {
