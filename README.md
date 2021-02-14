@@ -1,7 +1,9 @@
 # CppND-System-Monitor
 
 My solution of the System Monitor Project in the Object Oriented Programming Course of the Udacity C++ Nanodegree program.
+
 This code is base of https://github.com/udacity/CppND-System-Monitor
+
 The project concerns a system monitor for the Linux Operating System and emphasized learnings from the Object Oriented Programming (OOP) course of the program.
 
 ![System Monitor](images/Monitor.png)
