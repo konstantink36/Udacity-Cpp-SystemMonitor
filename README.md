@@ -3,9 +3,9 @@
 This is my solution of the System Monitor Project of the Udacity C++ Nanodegree program.
 
 The System Monitor displays system resource usage of the Linux operating system. 
+
 The starter code was provided by Udacity. 
 
-The base code can be found here https://github.com/udacity/CppND-System-Monitor
 
 ![System Monitor](images/Monitor.png)
 
