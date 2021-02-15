@@ -1,8 +1,7 @@
 # CppND-System-Monitor
 
 This is my solution of the System Monitor Project of the Udacity C++ Nanodegree program.
-
-The project concerns a system monitor for the Linux Operating System and emphasized learnings from the Object Oriented Programming (OOP) course of the program.
+The System Monitor displays system resource usage of the Linux operating system.
 
 The base code can be found here https://github.com/udacity/CppND-System-Monitor
 
